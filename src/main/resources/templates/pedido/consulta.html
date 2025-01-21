@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Consulta de Pedidos</title>
+</head>
+<body>
+<h1>Consulta de Pedidos</h1>
+<table>
+    <tr>
+        <th>Cliente</th>
+        <th>Itens</th>
+        <th>Valor Total</th>
+        <th>Ações</th>
+    </tr>
+    <tr th:each="pedido : ${pedidos}">
+        <td th:text="${pedido.cliente.nome}"></td>
+        <td th:text="${pedido.itens}"></td>
+        <td th:text="${pedido.valorTotal}"></td>
+        <td>
+            <a th:href="@{/pedidos/deletar/{id}(id=${pedido.id})}">Excluir</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

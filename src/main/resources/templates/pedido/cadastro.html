@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cadastro de Pedido</title>
+</head>
+<body>
+<h1>Cadastro de Pedido</h1>
+<form action="#" th:action="@{/pedidos/salvar}" th:object="${pedido}" method="post">
+    <label>Cliente:</label>
+    <select th:field="*{cliente.id}">
+        <option th:each="cliente : ${clientes}" th:value="${cliente.id}" th:text="${cliente.nome}"></option>
+    </select>
+    <label>Itens:</label>
+    <input type="text" th:field="*{itens}" required/>
+    <label>Valor Total:</label>
+    <input type="number" th:field="*{valorTotal}" required/>
+    <button type="submit">Salvar</button>
+</form>
+</body>
+</html>

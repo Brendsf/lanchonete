@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Consulta de Clientes</title>
+</head>
+<body>
+<h1>Consulta de Clientes</h1>
+<form action="#" method="get">
+    <label>Nome:</label>
+    <input type="text" name="nome"/>
+    <button type="submit">Buscar</button>
+</form>
+<table>
+    <tr>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>Telefone</th>
+        <th>Ações</th>
+    </tr>
+    <tr th:each="cliente : ${clientes}">
+        <td th:text="${cliente.nome}"></td>
+        <td th:text="${cliente.cpf}"></td>
+        <td th:text="${cliente.telefone}"></td>
+        <td>
+            <a th:href="@{/clientes/deletar/{id}(id=${cliente.id})}">Excluir</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
